@@ -1,0 +1,16 @@
+{
+    "name": "mouyse/taxi-ride-earning",
+    "description": "This app calculates the highest earning that can be earned by passing pickup & drop locations; along with Tips.",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "TaxiRideEarning\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jay Shah"
+        }
+    ],
+    "require": {}
+}
