@@ -7,8 +7,8 @@ $tip = [1, 2, 3, 2, 2, 1];
 
 function taxiDriver($pickups, $drops, $tips){
 
-    $taxi = TaxiRideEarning\Taxi::getInstance();
-    $ride = new TaxiRideEarning\Ride($pickups, $drops, $tips, $taxi);
+    $ride = new TaxiRideEarning\Ride($pickups, $drops, $tips);
+    $taxi = new TaxiRideEarning\Taxi($ride);
     
     return $ride->calculateBestRouteAndEarnings();
 }

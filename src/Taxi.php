@@ -1,22 +1,31 @@
 <?php
 declare(strict_types=1);
 
+/**
+ * A Taxi class handling the DI through constructor and acting as an intermediatory.
+ */
+
 namespace TaxiRideEarning;
 
-class Taxi {
+class Taxi 
+{
     private static $obj;
+    public Ride $ride;
 
-    protected function __clone() {}
-
-    protected function __wake(): void {}
-
-    private  function __construct(){ }
-
-    public static function getInstance(){
-        $subclass = Taxi::class;
-        if(!isset(self::$obj)){
-            self::$obj = new Taxi();
-        }
-        return self::$obj;
+    /**
+     * Injecting the dependency of Ride class through constructor to calculate the earnings. 
+     * @param \TaxiRideEarning\Ride $ride
+     */
+    public function __construct(Ride $ride)
+    {
+        $this->ride = $ride;
+    }
+    /**
+     * Calls the actual method to calculate the max earnings. 
+     * @return float|int
+     */
+    public function calculateMaxEarning()
+    {
+        return $this->ride->calculateBestRouteAndEarnings();
     }
 }
